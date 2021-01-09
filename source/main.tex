@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{karnaugh-map}
+
+\title{DLD Assignment 8}
+\author{Rajesh Kumar Rajoriya}
+%\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Boolean Expression}
+\begin{equation}
+    e = (A+C).(A+\overline{B}).(\overline{B}+\overline{D})
+\end{equation}
+
+\section{K-Map}
+\begin{figure}[h]
+\centering
+\begin{karnaugh-map}[4][4][1][][]
+    \maxterms{0,1,4,5,7,9}
+    \minterms{2,3,8,6}
+    \autoterms[X]
+    % note: position for start of \draw is (0, Y) where Y is
+    % the Y size(number of cells high) in this case Y=2
+  
+    \implicant{0}{5}
+    \implicant{5}{15}
+    \implicant{1}{9}
+    \draw[color=black, ultra thin] (0, 4) --
+    node [pos=0.7, above right, anchor=south west] {$AB$} % YOU CAN CHANGE NAME OF VAR HERE, THE $X$ IS USED FOR ITALICS
+    node [pos=0.7, below left, anchor=north east] {$CD$} % SAME FOR THIS
+    ++(135:1);
+\end{karnaugh-map}
+\caption{K-Map for \textit{e} using don't care condition}
+\end{figure}
+
+
+\end{document}
